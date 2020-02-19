@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  prune-link:
+    image: ddmr/prune-link:latest
+    restart: always
+    ports:
+      - 80:80
+    environment:
+     - SPRING_DATASOURCE_URL=jdbc:mysql://prune-link-db:3306/prune?useUnicode=true&serverTimezone=UTC&useSSL=false&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&autoReconnect=true
+     - SPRING_DATASOURCE_USERNAME=prune
+     - SPRING_DATASOURCE_PASSWORD=prune
+     - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver
+     - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+
+  prune-link-db:
+      image: mysql:latest
+      command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+      restart: always
+      ports:
+        - 3306:3306
+      environment:
+         MYSQL_DATABASE: 'prune'
+         MYSQL_USER: 'prune'
+         MYSQL_PASSWORD: 'prune'
+         MYSQL_ROOT_PASSWORD: 'prune'
+      security_opt:
+        - seccomp:unconfined
+      volumes:
+        - prune-link-db-data:/var/lib/mysql
+
+volumes:
+  prune-link-db-data:
