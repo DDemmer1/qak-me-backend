@@ -1,7 +1,5 @@
 # Backend-Service for the https://qak.me Link-Shortener
 
-This repository contains the backend for the link shortener qak.me
-
 If you want to get your qak.me service up and running with a frontend client simply install [Docker](https://docs.docker.com/get-docker/) and run this public container
 
 ```
