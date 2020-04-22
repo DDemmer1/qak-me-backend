@@ -13,7 +13,7 @@ localhost:8080
 
 
 
-REST-API Entrypoint:
+REST-API Entrypoints:
 
 ```
 Redirect to Short URL
