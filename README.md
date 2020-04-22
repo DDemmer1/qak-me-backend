@@ -18,7 +18,7 @@ REST-API Entrypoint:
 ```
 Redirect to Short URL
 GET /{shoturl}
-Response: 
+Will redirect to the corresponding original URL
 ```
 
 
